@@ -28,8 +28,8 @@ function ParticlesBackground() {
                 this.size = Math.random() * 2 + 0.5;
                 this.speedX = (Math.random() - 0.5) * 0.5;
                 this.speedY = (Math.random() - 0.5) * 0.5;
-                this.opacity = Math.random() * 0.5 + 0.1;
-                this.hue = Math.random() > 0.5 ? 190 : 270; // cyan or purple
+                this.opacity = Math.random() * 0.3 + 0.05;
+                this.hue = Math.random() > 0.5 ? 240 : 270; // indigo or violet
             }
 
             update() {
@@ -43,7 +43,7 @@ function ParticlesBackground() {
             draw() {
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fillStyle = `hsla(${this.hue}, 100%, 60%, ${this.opacity})`;
+                ctx.fillStyle = `hsla(${this.hue}, 80%, 50%, ${this.opacity})`;
                 ctx.fill();
             }
         }
@@ -63,7 +63,7 @@ function ParticlesBackground() {
                     if (distance < 150) {
                         const opacity = (1 - distance / 150) * 0.15;
                         ctx.beginPath();
-                        ctx.strokeStyle = `rgba(0, 212, 255, ${opacity})`;
+                        ctx.strokeStyle = `rgba(99, 102, 241, ${opacity})`;
                         ctx.lineWidth = 0.5;
                         ctx.moveTo(particles[i].x, particles[i].y);
                         ctx.lineTo(particles[j].x, particles[j].y);

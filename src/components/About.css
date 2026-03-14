@@ -46,7 +46,7 @@
 }
 
 .about__detail svg {
-    color: var(--accent-cyan);
+    color: var(--accent-primary);
     flex-shrink: 0;
 }
 

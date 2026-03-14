@@ -9,12 +9,12 @@
 }
 
 .navbar--scrolled {
-    background: rgba(10, 10, 26, 0.85);
+    background: rgba(238, 242, 255, 0.75);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border-glass);
     padding: 10px 0;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 30px rgba(99, 102, 241, 0.06);
 }
 
 .navbar__container {
@@ -38,7 +38,7 @@
 }
 
 .navbar__logo-bracket {
-    color: var(--accent-cyan);
+    color: var(--accent-primary);
 }
 
 .navbar__logo-name {
@@ -68,7 +68,7 @@
 }
 
 .navbar__link--active {
-    color: var(--accent-cyan);
+    color: var(--accent-primary);
 }
 
 .navbar__link-indicator {
@@ -136,7 +136,7 @@
         flex-direction: column;
         justify-content: center;
         gap: 16px;
-        background: rgba(10, 10, 26, 0.95);
+        background: rgba(238, 242, 255, 0.95);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
         border-left: 1px solid var(--border-glass);

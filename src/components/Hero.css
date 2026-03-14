@@ -19,7 +19,7 @@
 .hero__bg-glow--1 {
     width: 500px;
     height: 500px;
-    background: rgba(0, 212, 255, 0.08);
+    background: rgba(99, 102, 241, 0.12);
     top: -100px;
     right: -100px;
 }
@@ -27,7 +27,7 @@
 .hero__bg-glow--2 {
     width: 400px;
     height: 400px;
-    background: rgba(123, 47, 247, 0.08);
+    background: rgba(139, 92, 246, 0.10);
     bottom: -100px;
     left: -100px;
 }
@@ -101,7 +101,7 @@
     font-weight: 900;
     line-height: 1.1;
     margin-bottom: 16px;
-    background: linear-gradient(135deg, #ffffff 0%, #e0e0ff 50%, var(--accent-cyan) 100%);
+    background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, var(--accent-primary) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -184,23 +184,23 @@
 
 @keyframes ringRotate {
     0% {
-        background: linear-gradient(0deg, var(--accent-cyan), var(--accent-purple));
+        background: linear-gradient(0deg, var(--accent-primary), var(--accent-secondary));
     }
 
     25% {
-        background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
+        background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
     }
 
     50% {
-        background: linear-gradient(180deg, var(--accent-cyan), var(--accent-purple));
+        background: linear-gradient(180deg, var(--accent-primary), var(--accent-secondary));
     }
 
     75% {
-        background: linear-gradient(270deg, var(--accent-cyan), var(--accent-purple));
+        background: linear-gradient(270deg, var(--accent-primary), var(--accent-secondary));
     }
 
     100% {
-        background: linear-gradient(360deg, var(--accent-cyan), var(--accent-purple));
+        background: linear-gradient(360deg, var(--accent-primary), var(--accent-secondary));
     }
 }
 
@@ -218,7 +218,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, var(--bg-secondary), rgba(0, 212, 255, 0.1));
+    background: linear-gradient(135deg, rgba(255,255,255,0.5), rgba(99, 102, 241, 0.1));
     font-size: 6rem;
     font-weight: 900;
     background-clip: text;
@@ -239,12 +239,14 @@
     align-items: center;
     gap: 8px;
     padding: 10px 18px;
-    background: rgba(10, 10, 26, 0.8);
+    background: rgba(255, 255, 255, 0.6);
     border: 1px solid var(--border-glass);
     border-radius: 50px;
     font-size: 0.85rem;
     font-weight: 600;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 4px 16px rgba(99, 102, 241, 0.08);
     animation: float 4s ease-in-out infinite;
     white-space: nowrap;
 }
@@ -309,7 +311,7 @@
 .hero__scroll-wheel {
     width: 3px;
     height: 8px;
-    background: var(--accent-cyan);
+    background: var(--accent-primary);
     border-radius: 3px;
     animation: scroll 2s ease-in-out infinite;
 }
