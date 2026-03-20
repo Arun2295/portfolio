@@ -16,7 +16,7 @@
 }
 
 .about__bio-title {
-    font-size: 1.5rem;
+    font-size: 1.375rem;
     font-weight: 700;
     margin-bottom: 16px;
     background: var(--accent-gradient);
@@ -42,7 +42,7 @@
     align-items: center;
     gap: 12px;
     color: var(--text-secondary);
-    font-size: 0.95rem;
+    font-size: 0.875rem;
 }
 
 .about__detail svg {
@@ -81,7 +81,7 @@
 }
 
 .about__stat-value {
-    font-size: 2.5rem;
+    font-size: 2.375rem;
     font-weight: 800;
     background: var(--accent-gradient);
     -webkit-background-clip: text;
@@ -92,7 +92,7 @@
 }
 
 .about__stat-label {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: var(--text-secondary);
     font-weight: 500;
 }

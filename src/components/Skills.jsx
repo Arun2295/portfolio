@@ -2,6 +2,91 @@ import { skills } from '../data/data';
 import './Skills.css';
 
 function Skills() {
+    const allSkillNames = skills.flatMap((category) => category.items.map((item) => item.name));
+
+    const normalizeKey = (value) =>
+        String(value)
+            .toLowerCase()
+            .replace(/&/g, 'and')
+            .replace(/\//g, ' ')
+            .replace(/[^a-z0-9\s]/g, '')
+            .replace(/\s+/g, ' ')
+            .trim();
+
+    // Monochrome SVG icons via Simple Icons CDN.
+    // Note: not every tech has a dedicated icon; we fall back to initials.
+    const iconSlugBySkill = {
+        java: 'openjdk',
+        mysql: 'mysql',
+        docker: 'docker',
+        linux: 'linux',
+        swagger: 'swagger',
+        postman: 'postman',
+        github: 'github',
+        'git and github': 'github',
+        git: 'git',
+        'vs code': 'visualstudiocode',
+        'intellij idea': 'intellijidea',
+        'spring boot': 'springboot',
+        'spring security': 'spring',
+        'spring ai': 'spring',
+        'rest apis': 'swagger',
+        'npm maven': 'npm',
+        npm: 'npm',
+        maven: 'apachemaven',
+    };
+
+    const getIconUrl = (name) => {
+        const key = normalizeKey(name);
+        const slug = iconSlugBySkill[key];
+        if (!slug) return null;
+        // 0A0A0A = near-black, matches our paper theme text color
+        return `https://cdn.simpleicons.org/${slug}/0A0A0A`;
+    };
+
+    const getAbbr = (name) => {
+        const cleaned = String(name).trim();
+        const parts = cleaned.split(/\s+/).filter(Boolean);
+        if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
+        return parts
+            .slice(0, 2)
+            .map((p) => p[0])
+            .join('')
+            .toUpperCase();
+    };
+
+    const rowA = allSkillNames.filter((_, i) => i % 3 === 0);
+    const rowB = allSkillNames.filter((_, i) => i % 3 === 1);
+    const rowC = allSkillNames.filter((_, i) => i % 3 === 2);
+
+    const MarqueeRow = ({ items, reverse = false }) => {
+        const doubled = [...items, ...items];
+        return (
+            <div className={`skills__marquee ${reverse ? 'skills__marquee--reverse' : ''}`}>
+                <div className="skills__marquee-track">
+                    {doubled.map((name, idx) => (
+                        <div className="skills__marquee-item" key={`${name}-${idx}`}>
+                            <div className="skills__marquee-icon" aria-hidden="true">
+                                {getIconUrl(name) ? (
+                                    <img
+                                        className="skills__marquee-icon-img"
+                                        src={getIconUrl(name)}
+                                        alt=""
+                                        loading="lazy"
+                                        decoding="async"
+                                    />
+                                ) : (
+                                    getAbbr(name)
+                                )}
+                            </div>
+                            <div className="skills__marquee-label">{name}</div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        );
+    };
+
     return (
         <section id="skills" className="skills section">
             <div className="container">
@@ -13,34 +98,10 @@ function Skills() {
                     </p>
                 </div>
 
-                <div className="skills__grid">
-                    {skills.map((category, catIndex) => (
-                        <div
-                            key={category.category}
-                            className={`skills__card glass-card reveal stagger-${catIndex + 1}`}
-                        >
-                            <div className="skills__card-header">
-                                <span className="skills__card-icon">{category.icon}</span>
-                                <h3 className="skills__card-title">{category.category}</h3>
-                            </div>
-                            <div className="skills__items">
-                                {category.items.map((skill) => (
-                                    <div key={skill.name} className="skills__item">
-                                        <div className="skills__item-header">
-                                            <span className="skills__item-name">{skill.name}</span>
-                                            <span className="skills__item-level">{skill.level}%</span>
-                                        </div>
-                                        <div className="skills__progress-bar">
-                                            <div
-                                                className="skills__progress-fill"
-                                                style={{ '--progress': `${skill.level}%` }}
-                                            ></div>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    ))}
+                <div className="skills__marquee-wrap reveal">
+                    <MarqueeRow items={rowA} />
+                    <MarqueeRow items={rowB} reverse />
+                    <MarqueeRow items={rowC} />
                 </div>
             </div>
         </section>

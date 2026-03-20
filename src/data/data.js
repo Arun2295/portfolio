@@ -96,15 +96,6 @@ export const projects = [
 
 export const experience = [
   {
-    role: "Backend Developer",
-    company: "Independent Developer",
-    period: "2024 — Present",
-    description:
-      "Building Backend web applications using  and Spring Boot. Developed multiple projects including e-commerce platforms with secure authentication, RESTful APIs.",
-    technologies: ["React", "Spring Boot", "MySQL", "JWT"],
-  },
-
-  {
     role: "Computer Science Student",
     company: "Lovely Professional University",
     period: "2023 — Present",
@@ -139,7 +130,6 @@ export const socialLinks = [
 
 export const navLinks = [
   { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
   { label: "Projects", href: "#projects" },
   { label: "Experience", href: "#experience" },

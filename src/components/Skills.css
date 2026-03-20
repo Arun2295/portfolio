@@ -1,89 +1,146 @@
-.skills__grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 28px;
+/* Match reference: centered Skills heading */
+.skills .section-header {
+    text-align: center;
 }
 
-.skills__card {
-    padding: 36px 28px;
+.skills .section-subtitle {
+    margin: 0 auto;
 }
 
-.skills__card-header {
+.skills__marquee-wrap {
+    margin-top: 35px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.skills__marquee {
+    position: relative;
+    overflow: hidden;
+    padding: 10px 0;
+    max-width: 860px;
+    margin: 0 auto;
+    border-top: 1px solid var(--border-glass);
+    border-bottom: 1px solid var(--border-glass);
+    background: rgba(255, 255, 255, 0.55);
+
+    -webkit-mask-image: linear-gradient(
+        90deg,
+        transparent,
+        #000 10%,
+        #000 90%,
+        transparent
+    );
+    mask-image: linear-gradient(
+        90deg,
+        transparent,
+        #000 10%,
+        #000 90%,
+        transparent
+    );
+}
+
+.skills__marquee-track {
     display: flex;
     align-items: center;
-    gap: 14px;
-    margin-bottom: 28px;
+    gap: 44px;
+    width: max-content;
+    animation: skills-marquee 26s linear infinite;
 }
 
-.skills__card-icon {
-    font-size: 2rem;
-    width: 52px;
-    height: 52px;
+.skills__marquee--reverse .skills__marquee-track {
+    animation-direction: reverse;
+    animation-duration: 30s;
+}
+
+.skills__marquee-wrap .skills__marquee:nth-child(3) .skills__marquee-track {
+    animation-duration: 28s;
+}
+
+@keyframes skills-marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.skills__marquee-item {
+    min-width: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    color: var(--text-secondary);
+    user-select: none;
+}
+
+.skills__marquee-icon {
+    width: 58px;
+    height: 58px;
+    border-radius: 18px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(99, 102, 241, 0.08);
-    border-radius: var(--radius-md);
-}
-
-.skills__card-title {
-    font-size: 1.2rem;
-    font-weight: 700;
-}
-
-/* Skill Items */
-.skills__items {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-}
-
-.skills__item-header {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 8px;
-}
-
-.skills__item-name {
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: var(--text-primary);
-}
-
-.skills__item-level {
-    font-size: 0.8rem;
     font-family: var(--font-mono);
-    color: var(--accent-primary);
+    font-weight: 700;
+    font-size: 1.02rem;
+    letter-spacing: 0.08em;
+    color: rgba(10, 10, 10, 0.72);
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid var(--border-glass);
 }
 
-/* Progress Bar */
-.skills__progress-bar {
-    width: 100%;
-    height: 6px;
-    background: rgba(255, 255, 255, 0.06);
-    border-radius: 4px;
-    overflow: hidden;
+.skills__marquee-icon-img {
+    width: 30px;
+    height: 30px;
+    display: block;
+    opacity: 0.7;
 }
 
-.skills__progress-fill {
-    height: 100%;
-    width: var(--progress);
-    background: var(--accent-gradient);
-    border-radius: 4px;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+.skills__marquee-label {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: rgba(10, 10, 10, 0.6);
 }
 
-.skills__card.revealed .skills__progress-fill {
-    transform: scaleX(1);
+@media (prefers-reduced-motion: reduce) {
+    .skills__marquee-track {
+        animation: none;
+    }
 }
 
-/* Responsive */
-@media (max-width: 968px) {
-    .skills__grid {
-        grid-template-columns: 1fr;
-        max-width: 500px;
-        margin: 0 auto;
+@media (max-width: 768px) {
+    .skills__marquee {
+        -webkit-mask-image: none;
+        mask-image: none;
+        max-width: 100%;
+    }
+
+    .skills__marquee-track {
+        gap: 34px;
+        animation-duration: 34s;
+    }
+
+    .skills__marquee-item {
+        min-width: 90px;
+    }
+
+    .skills__marquee-icon {
+        width: 52px;
+        height: 52px;
+        border-radius: 16px;
+    }
+
+    .skills__marquee-icon-img {
+        width: 26px;
+        height: 26px;
+    }
+
+    .skills__marquee-label {
+        font-size: 0.8rem;
     }
 }
