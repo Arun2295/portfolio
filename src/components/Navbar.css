@@ -71,23 +71,6 @@
     color: var(--accent-primary);
 }
 
-.navbar__link-indicator {
-    position: absolute;
-    bottom: 2px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 2px;
-    background: var(--accent-gradient);
-    border-radius: 2px;
-    transition: width var(--transition-fast);
-}
-
-.navbar__link--active .navbar__link-indicator,
-.navbar__link:hover .navbar__link-indicator {
-    width: 20px;
-}
-
 /* CTA */
 .navbar__cta {
     padding: 10px 24px;

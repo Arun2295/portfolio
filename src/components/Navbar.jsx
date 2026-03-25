@@ -63,7 +63,6 @@ function Navbar() {
                                 onClick={(e) => handleNavClick(e, link.href)}
                             >
                                 {link.label}
-                                <span className="navbar__link-indicator"></span>
                             </a>
                         </li>
                     ))}
