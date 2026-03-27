@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { personalInfo } from '../data/data';
 import ParticlesBackground from './ParticlesBackground';
+import profileImg from '../assets/myphoto.jpg';
 import './Hero.css';
 
 function Hero() {
@@ -80,9 +81,7 @@ function Hero() {
                 <div className="hero__visual">
                     <div className="hero__avatar-ring">
                         <div className="hero__avatar">
-                            <div className="hero__avatar-placeholder">
-                                <span>{personalInfo.name.charAt(0)}</span>
-                            </div>
+                            <img src={profileImg} alt={personalInfo.name} className="hero__avatar-img" />
                         </div>
                     </div>
                     <div className="hero__floating-badge hero__floating-badge--1">

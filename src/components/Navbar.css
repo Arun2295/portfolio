@@ -5,6 +5,7 @@
     width: 100%;
     z-index: 1000;
     padding: 16px 0;
+    background: var(--bg-primary);
     transition: all var(--transition-medium);
 }
 
@@ -12,9 +13,8 @@
     background: var(--bg-card);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border-glass);
     padding: 10px 0;
-    box-shadow: var(--shadow-card);
+    box-shadow: none;
 }
 
 .navbar__container {
